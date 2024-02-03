@@ -1,0 +1,54 @@
+*******************************************************
+                *  GİT İLK PROJE  *
+*******************************************************
+*git config --global user.email "your-email@email.com"
+*git config --global user.name "Your Name"
+
+--repository oluşturma:
+*ilgili dizini oluşturup içine git
+*git init
+bu repo şu şekilde oluşturulabilirdi: 
+*mkdir embedded/git
+*cd embedded
+*git init
+
+-- tree .  komutu ile dosya yapısı görüntülenebilir
+
+--durum kontrolü
+*git status
+
+--stage alanına dosyaların eklenmesi için:
+*git add dosyaadi.txt
+*git add klasoradi/
+bütün değişiklikleri atmak için --> git add .
+
+--işlemleri onaylama:
+*git commit -m "güncelleme yorumu"
+
+
+*******************************************************
+                  *  GİT COMMIT  *
+*******************************************************
+--commit analizi
+*git log --> kommit durumunu görüntüleme
+*git cat-file -p COMMIT_ICIN_URETILMIS_HASH --> önceki commentin detaylarına bakma
+*tree COMMIT_ICIN_URETILMIS_TREE_HASH
+
+yeni commit yaptıktan sonra log ile kontrol ettiğinde her commitin yanında kod var.
+*git cat-file -p  kod ile commitin içeriğine bakabilirsin
+
+Count-objects ile projenin altında "objects" dizininde toplamda kaç adet objenin olduğunu kontrol edebilirsiniz.
+*git count-objects
+
+
+*******************************************************
+                  *  BRANCH  *
+*******************************************************
+*git branch
+*git branch test
+*git branch
+
+
+
+
+
