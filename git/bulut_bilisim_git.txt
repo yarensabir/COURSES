@@ -55,7 +55,26 @@ Count-objects ile projenin altında "objects" dizininde toplamda kaç adet objen
 *******************************************************
                   *  MERGE  *
 *******************************************************
+--repositorynin güncel ağaç yapısı:
+*git log --oneline --graph --all --decorate
+--iki branchı birleştirme (fast forward):
+*git merge test
 
+--Bu yöntemde ise branch'lerin birleştirilmesi esnasında yeni bir commit oluşturulmaz. Olan commitlerdeki ilk birleşim noktasına kadar geri gidilip yeni commitler sanki yeni özellik eski kod base'iyle aynı daldan geliyormuş gibi tek tek eklenir. Bu işlem sonucunda ise ağaç yapısı daha düzenli ve temiz bir hale gelir.
+*git rebase master
+
+*******************************************************
+                     *  TAG  *
+*******************************************************
+HASH kontrolünde de göreceğiniz üzere TAG halen daha eski commit'i gösterirken Branch yeni kommiti göstermektedir.
+En son durumda eğer git log derseniz tag'lerin yerinde sabit durduğunu ve aslında o commit durumuna bir etiket görevi gördüğünü göreceksiniz. Branch'ler ise aksine commitler arasında hareket edebilir ve commitlerin akışını yönetirken kullanılır.
+
+*git tag release_1 -a -m "İlk versiyon"
+*cat .git/refs/tags/release_1 # buradan hash değerini alıyoruz
+*git cat-file -p  HASH_DEGERI
+
+--Annotated ve standart tag karşılaştırması için her iki tag türününde içeriğine bakabilirsiniz.
+*git tag nonannotated
 
 
 
