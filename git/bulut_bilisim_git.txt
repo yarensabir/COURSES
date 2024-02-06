@@ -44,9 +44,19 @@ Count-objects ile projenin altında "objects" dizininde toplamda kaç adet objen
 *******************************************************
                   *  BRANCH  *
 *******************************************************
+--branchları görüntüleme:
 *git branch
+--test adında yeni branch oluşturma:
 *git branch test
-*git branch
+--branch değişikliği yapma git switch ve git checkout ile yapılır:
+*git switch test
+
+
+*******************************************************
+                  *  MERGE  *
+*******************************************************
+
+
 
 
 
