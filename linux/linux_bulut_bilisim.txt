@@ -1,0 +1,96 @@
+******************************************************
+                      *GİRİŞ*
+******************************************************
+comut satırı arayüzü -- command line interface -- cli
+
+*whoami: kullanıcı hesabını görüntüleme
+
+*ls: list, dizindeki dosyaları listeleme
+
+*cd: change directory
+
+*pwd: anlık olarak çalışılan dizinin yolunu (path) verir
+
+*touch: dosya oluşturma
+
+*echo: istenilen metnin çıktısını terminalde görüntüleme ya da yönlendirme
+
+*cat: dosya içeriği görüntüleme
+
+*mkdir: make directory, dizin oluşturma
+
+*file: dosyanın türünü öğrenme 
+
+*cp: copy
+
+*mv: move
+
+*rm: remove
+
+*help: parametre veya argüman hakkında bilgi elde etme
+
+*man: manual pages, kullanma klavuzu
+name: komutun adı ve açıklaması
+synopsis: komutun nasıl kullanılacağı
+description: komutun işlevi hakkında detaylı bilgi
+examples: komutun kullanımıyla alakalı örnekler
+see also: komutla ilgili diğer açıklamalar
+
+*find: bulunmak istenen dosyanın dizini
+
+*grep: aranan kelimenin veya metnin dosyanın içinde olup olmadığına bakılır
+
+
+******************************************************
+                   *PAKET YÖNETİMİ*
+******************************************************
+centos dağıtımlarında paketler rpm ve yum ile, debian dağıtımlarında paketler dpkg ve apt ile yüklenir
+
+*apt-get update
+
+*apt-get upgrade
+
+*apt-get dist-upgrade: sistemdeki gereksiz paketleri siler
+
+*dpkg -l: sistemdeki paketleri listeler
+
+*dpkg --get-selections: sistemdeki kurulu veya kaldırılmış programları listeleme
+
+*dpkg -s programadi: kurulan program hakkında bilgi verir
+
+*apt-get install
+
+*apt-cache show programadi: yüklenecek program hakkında bilgi verir
+
+*apt-get remove programadi
+
+*apt-get purge programadi: programı tüm dosyalarıyla birlikte kaldırır
+
+
+******************************************************
+                *KULLANICI YÖNETİMİ*
+******************************************************
+Kullanıcı bilgileri /etc/passwd, kullanıcı şifreleri ise /etc/shadow dosyasında yer alır. 
+
+*chage -l kullaniciAdi: kullanıcı bilgilerini görüntüleme
+
+*adduser kullanici2: sisteme yeni kullanıcı eklenir. kullanıcıya ait home dizini home/kullanici2 dizininde oluşur
+*useradd -m <'KullanıcıAdı'>: -m home dizininin otomatik oluşturulmasını sağlar
+
+*sudo: yetki yükseltme
+
+*passwd <'KullanıcıAdı'>: şifre güncelleme
+
+*deluser --remove-all-files kullanici1: kullanıcı hesabını siler
+*userdel --remove-all-files kullanici1
+
+*cd /home --> cd home işe yaramıyor
+
+
+
+
+
+
+
+
+
