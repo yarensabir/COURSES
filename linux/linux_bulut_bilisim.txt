@@ -87,6 +87,61 @@ Kullanıcı bilgileri /etc/passwd, kullanıcı şifreleri ise /etc/shadow dosyas
 *cd /home --> cd home işe yaramıyor
 
 
+******************************************************
+              *DOSYA DİZİN İŞLEMLERİ*
+******************************************************
+YETKİ DÜZEYLERİ:
+*r: read/okuma. dosyanın ya da dizinin içeriğine erişim. sayısal değeri -->4
+*w: write/yazma: dosyaların ve dizinlerin içeriğini değiştirme yetkisi. sayısal değeri --> 2
+*x: execute/çalıştırma: dosyalarda script/bin vb dosyaları çalıştırılabilir hale getirmek için kullanılır. dizinlerde o dizinden geçiş hakkı vermiş olur. sayısal değeri --> 1
+
+dosyalar/dizinler ve yetkileri ls -l ile görüntülenir
+
+-rwxrwxrwx --> -/rwx/rwx/rwx 
+- dosya olduğunu gösterir, dizin olduğunda d harfi bulunur (directory)
+1. grup rwx kullanıcının yetkilerini gösterir
+2. grup rwx kullanıcı grubunun yetkilerini gösterir
+3. grup rwx diğer userların yetkisi
+
+yetki chmod ile ayarlanır:
+chmod 000 deneme.txt
+1. 0 kullanıcının yetkileri
+2. 0 grubun yetkileri
+3. 0 diğer kullanıcıların yetkileri
+
+chmod 754 deneme.txt 
+7--> 7=r(4)+w(2)+x(1) --> rwx
+5--> 5=r(4)+x(1) --> r-x
+4--> 4=r(4) --> r--
+
+chmod u=rwx,g=rx,o=r deneme.txt
+u = user
+g = group
+o = others
+
+
+******************************************************
+                   *LİNK OLUŞTURMA*
+******************************************************
+HARD LINK
+Hard link, dosya sistemlerindeki bir dosyayı farklı bir isim altında (başka bir adla) referans almanıza olanak tanıyan bir dosya bağlantı türüdür.Hard link, orijinal dosyayla aynı inode numarasına sahiptir ve dosya sisteminden silinmedikçe silinmez. Bu nedenle, orijinal dosya silinse bile hard link hala kalır.Hard link, yalnızca aynı dosya sistemine bağlantı kurabilirsiniz. Yani, farklı bir dosya sistemi veya disk bölümünde bulunan dosyalara hard link oluşturamazsınız. Hard link, dosyanın orijinalinin herhangi bir değişikliklerini yansıtır. Çünkü, aslında aynı dosya sistemdeki aynı dosya ile aynı inode’a referans alırlar. Bu nedenle, hard linkli dosyada yapılan herhangi bir değişiklik, orijinal dosyada da görünecektir.
+
+*ln [source file] [target file]
+ls -li
+
+SEMBOLİK LINK
+Soft link veya sembolik link, dosya sistemleri arasında bağlantı oluşturmak için kullanılan küçük bir dosya türüdür. Sembolik linkler, asıl dosyanın yerine geçer ve ona referans verir. Sembolik link, orijinal dosyayla aynı inode numarasına sahip değildir ve ayrı bir inode numarası oluşur. Sembolik linkler, herhangi bir dosya veya klasörü işaret edebilir ve farklı dosya sistemleri veya cihazlar arasında kullanılabilir. Ayrıca sembolik linkler, dosya adı veya yolu değiştiğinde programların hala doğru dosyaya erişmesini sağlar ve asıl dosya silindiğinde sembolik link bozulur. 
+
+*ln -s [source file] [symbolic link file]
+
+LINK UYGULAMALARI  
+-Dosya Yedekleme: Bir dosyanın hard link’ini oluşturarak, orijinal dosya değiştirilse bile yedeklenmiş dosyaya erişmeye devam edebilirsiniz. 
+-Dosya Paylaşımı: Hard link’ler, birden fazla dosya adı arasında paylaşım sağlayarak disk alanından tasarruf etmenizi sağlar.
+-Program Kurulumu: Sık kullanılan programların kısayollarını oluşturmak için soft link’ler kullanılabilir. Bu sayede programın asıl dosyasının konumu değişse bile kısayoldan erişebilirsiniz.
+-İzin Yönetimi: Bir dosyanın birden fazla kopyası olsa bile, her biri aynı dosya sistemine ait olduğundan izinler aynı kalır.
+-Dosya Sıkıştırma: Sıkıştırılmış dosyalar, dosya boyutunu küçültmek için sık sık kullanılır. Tar, gzip veya bzip2 gibi araçlar, sıkıştırılmış dosyaları oluşturmak için hard link’ler ve sembolik link’lerle birlikte kullanılabilir.
+-Dosya Yönetimi: Hard link’ler ve sembolik link’ler, dosyaları düzenlemede farklı bir yaklaşım sunar. Örneğin, bir sembolik link oluşturarak, dosyalarınızın daha iyi organize edilmesini sağlayabilirsiniz. Bu şekilde, aynı dosyayı birden fazla klasörde kullanarak, dosya sistemini daha verimli hale getirebilirsiniz.
+
 
 
 
