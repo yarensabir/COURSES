@@ -143,9 +143,99 @@ LINK UYGULAMALARI
 -Dosya Yönetimi: Hard link’ler ve sembolik link’ler, dosyaları düzenlemede farklı bir yaklaşım sunar. Örneğin, bir sembolik link oluşturarak, dosyalarınızın daha iyi organize edilmesini sağlayabilirsiniz. Bu şekilde, aynı dosyayı birden fazla klasörde kullanarak, dosya sistemini daha verimli hale getirebilirsiniz.
 
 
+******************************************************
+                  *SİSTEM YÖNETİMİ*
+******************************************************
+*apt-get install -y systemctl psmisc
+
+Süreç(process) denilen kavram genel olarak; bir program çalıştığında programın belleğe yüklenme işlemine denir.
+
+Systemd, Linux kerneli için sistem ve servis yöneticiliği görevini gerçekleştiren bir servis yöneticisidir. Amacı sistemdeki servislerin çalışmasını organize etmektir.
+
+*systemctl list-units --type=service: çalışan servislerin görüntülenmesi
+
+*systemctl stop <'ServisAdı'>
+
+*systemctl start <'ServisAdı'>
+
+*systemctl restart <'ServisAdı'>
+
+*systemctl status <'ServisAdı'>: servisle ilgili durum bilgisi
+
+*systemctl disable <'ServisAdı'>: servisi devre dışı bırakma
+
+*systemctl enable <'ServisAdı'>
+
+*systemctl --version
+
+*systemctl is-enabled <'ServisAdı'>: servisin aktif olup olmadığı bilgisi
+
+*systemctl list-dependencies <'ServisAdı'>: servisin bağımlılıkları
+
+************************************************************************************************
+
+*ps aux: sistemdeki tüm süreçlerin görüntülenmesi
+
+*ps -e: sistem süreçlerini görüntüleme
+
+*ps -u <username>: kullanıcıya ait süreçler görüntülenir
+
+*ps aux | grep <'SüreçAdı'>: belirtilen işleme ait süreçler gösterilir
+
+*top: süreçleri üç saniyede bir listeler
+
+*top -d <'Sayı'>: süreçleri belirtilen sayı kadar saniyede bir listeler
+
+*pstree -p: süreçleri bağımlılıkları (dependencies) ve PID (Process ID)'leri ile gösterir
+
+*pgrep <'SüreçAdı'>: belirtilen sürece ait PID (Process ID)'leri görüntüler
+
+*kill <'ProcessID'>
+
+*kill -9 <'ProcessID'>: ilgili proccess zorla sonlandırılır
+
+*killall <'SüreçAdı'>
+
+*killall -9 <'SüreçAdı'>
+
+*xkill: kullanıcı arayüzüne yanıt vermeyen uygulamayı sonlandırmaya zorlar
 
 
+******************************************************
+                      *BASH*
+******************************************************
 
+*echo $SHELL: hangi shell programı kullanılıyor (büyük çoğunlukla bash)
+
+*ps: çalışmakta olan shell programı
+
+*cat /etc/shells: sistemde bulunan kabuk programları
+
+#!/bin/bash
+
+bu satır sonraki alt satırların hangi kabuk tarafından yorumlanacağını bildiren standart bir tanımdır ve komutların doğru yorumlanabilmesi için her bash scriptinde olmalıdır
+Program çalıştırıldığında sistem tarafından öncelikle ilk satır okunur ve ilk satırda geçen kabuk diline göre program ilgili kabuk dili aracılığı ile çalıştırılır. Şayet ilk satıra hiç bir ifade eklemezseniz program varsayılan olarak mevcut kabuk üzerinden script dosyasını çalıştırmayı dener. Yani aslında mevcut sisteminizde kullanılan kabuk bash ise dosyanıza eklemeseniz de betik dosyanız sistemde varsayılan kabuk bash olduğundan sorunsuz şekilde çalışacaktır. Ancak yine de yazmış olduğunuz betik dosyasının diğer sistemlerde de doğru şekilde çalıştırılabilmesi için bu ifadeyi eklemek son derece önemlidir. Zira çoğu sistem bash kabuğunu varsayılan olarak kullansa da, istisnai durumlarda farklı kabukların kullanıldığı da olabiliyor.
+
+bash dosyalarının uzantısı .sh
+
+*vi bb.sh
+içerik:
+#! /bin/bash
+echo "Bulut Bilişimciler"
+*esc + :wq!
+*bash bb.sh
+
+bash BetikDosyasıAdı.sh
+sh BetikDosyasıAdı.sh
+./BetikDosyasıAdı.sh --> chmod ile izinlerin değiştirilmesi lazım
+chmod +x bb.sh --> çalıştırma yetkisi verdi
+
+./ --> Komutta kullandığımız ".(nokta)" ifadesi bildiğiniz gibi şu anda bulunduğumuz konumu ifade ediyor. Noktadan sonra kullanmış olduğumuz "/(Slash)" ifadesi ise bulunduğumuz konumdaki betik dosyasına ulaşmamızı sağlıyor. yani:
+./bb.sh == /root/bb.sh
+
+bash dili sh dilinin genişletilmiş halidir (c/c++ gibi)
+sh daha ilkel
+bash ile yazılan hem absh ile hem sh ile çalıştırılabilir
 
 
 
