@@ -237,5 +237,24 @@ bash dili sh dilinin genişletilmiş halidir (c/c++ gibi)
 sh daha ilkel
 bash ile yazılan hem absh ile hem sh ile çalıştırılabilir
 
+************************************************************************************************************
+************************************************************************************************************
+
+değişken atama
+*degisken="linux"
+*echo $degisken
+
+-değişken tanımlarken eşittir(=) işaretinin sağında ve solunda boşluk olmamasına dikkat etmemiz gerekiyor
+-sistemdeki değişkenleri görmek içi echo $ tab tab
+
+*declare: değişkenlerin belli türlerde değer almasını sağlama
+eğer değişkenlere özellik eklemek istiyorsak "-" işaretini, şayet var olan özellikleri çıkarmak istiyorsak da "+" işaretini, eklemek ya da çıkarmak istediğimiz özelliğin parametresini de belirterek kullanmamız yeterli olacaktır
+
+-p: print, değişkenin niteliklerini bastır
+-i: integer, sayısal değişken tanımala
+-r: readonly, sabit değer atama
+-a: array
+-x: export, değişkeni ihraç ederek alt kabuklara aktarma işlemi
+
 
 
