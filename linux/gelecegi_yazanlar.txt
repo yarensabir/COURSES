@@ -1,0 +1,15 @@
+- dosyalar
+d dizinler
+l bağlantılar (linkler)
+
+yeni dosya oluşturma --> touch komutu
+
+güvenlik amacıyla rm komutu ile dizin silemiyoruz. 
+dizin silmek için recursive parametresini kullanılırız.
+rm -r klasorAdi
+
+move dosya ismi değiştirmede de kullanılır
+
+arşivleme:
+tar -zcvf arsiv.tar dosyaAdi
+
