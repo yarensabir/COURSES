@@ -256,5 +256,21 @@ eğer değişkenlere özellik eklemek istiyorsak "-" işaretini, şayet var olan
 -a: array
 -x: export, değişkeni ihraç ederek alt kabuklara aktarma işlemi
 
+*declare -i değişken="değeri"
+*declare -a dizi=(değer1 değer2 değer3)
+*echo ${dizi[0]}
+-dizideki bütün elemanları bastırmak için:
+*echo ${liste[*]}
+*echo ${liste[@]}
+-dizideki eleman sayısını öğrenmek için:
+*echo ${#liste[*]}
+-dizi elemanının kaç karakterden oluştuğunu öğrenmek için "#"
+*echo ${#liste[2]}    
+
+readonly sabit="sabit değer1" --> declare -r sabit1="sabit değer 1"
+ikisi aynı
+
+
+
 
 
