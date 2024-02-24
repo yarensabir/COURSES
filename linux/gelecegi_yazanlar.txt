@@ -1,3 +1,5 @@
+linux 101
+
 - dosyalar
 d dizinler
 l bağlantılar (linkler)
@@ -12,4 +14,146 @@ move dosya ismi değiştirmede de kullanılır
 
 arşivleme:
 tar -zcvf arsiv.tar dosyaAdi
+arşiv açma:
+tar -zxvf arsiv.tar
+
+nano ile dosya düzenleme:
+nano dosyaAdi.uzantisi
+^ --> ctrl anlamına geliyor
+ctrl + tuş kombinasyonunu kullanıyoruz
+işlemi yinelemek için ctrl yerine alt kullanıyoruz
+
+vim kodu çalıştırma ve dosyayı renklendirme imkanı sağlayabilir, komut sistemi var
+komut çalıştırmak için esc + : tuş kombinasyonu kullanılıyor
+
+metin düzenleyiciler:
+atom, gedit, vim, nano
+
+metin okuyucu: cat
+cat --> concatinate kısaltması
+cat ile birden fazla dosya içeriği okunabiliyor
+
+cat -n dosyaAdi: her satırın başında satır sıra numarasını yazdırır
+cat -E dosyaAdi: satır sonlarını işaretler
+cat -tag dasyaAdi: dosyayı sondan başa görüntüler
+
+head --> metin belgesinin ilk on satırı okunur (default)
+head -nsayi --> istenen sayıda baştan okur
+tail --> son 10 satır okunur
+tail -nsayi --> sondan istenen sayıda satır okur
+tail -f --> dosyayı canlı izleme
+more --> metnin pencereye sığan kısmını getirir, enter ile satırların devamı görüntülenir
+nl --> boş olmayan satırlara numara eklemeden görüntüler
+
+file dosyaAdi --> dosya hakkında bilgi edinme
+word count (wc) --> satır sayısı | kelime sayısı | byte cinsinden boyut
+
+sort --> dosya sıralama
+sort -k sütunSırası
+sort -c: check, liste sıralı mı kontrol et
+sort -r: tersten sıralar, reverse
+sort dosya1 -o dosya2: dosya2 oluşturulur, sıralanmış dosya1 içine akratılır
+sort -R: random sırala
+
+grep --> dosya içerisinde arama yapma 
+grep -v: verilen parametre hariç olan satırları sırala
+grep -i: büyük küçük harf duyarlılığı kaldırma
+grep -i 'T' -v dosyaAdi.txt --> dosya içerisindeki büyük ve küçük t olan satırlar hariç olanlar
+
+
+linux 201
+
+wildcard: komutları yazarken kriter oluşturmamızı sağlar, filtreleme işlevi görür
+* --> bir ya da birden fazla karakterin yerine geçer, joker
+? --> yalnızca bir karakter yerine geçer
+[] --> yerine geçecaği karakterleri küme şeklinde belirtir
+
+ls *.html --> html uzantılı dosyalar listelenir
+ls *fizik* --> fizik kelimesi içerenler listelenir
+ 
+cp *fizik* fizik/ --> fizik kelimesini içeren bütün dosyalar fizik dizinine kopyalandı
+mv [91]* lise/ --> 9 ve 1 ile başlayan bütün dosyalar lise dizinine taşınır
+mv [678] orta/ --> 6 7 ve 8 ile başlayan bütün dosyalar orta klasörüne taşındı
+
+yönlendirme operatörleri:
+komutlar soldan sağa çalışır
+> bir komutun çıktısını diğer komuta ya d dosyaya yönlendirir, dosya içeriği tamamen değişir
+>>  yönlendirilen veri dosya sonuna eklenir 
+| pipe, komut zinciri oluşturmaya yarar
+
+cat 9*.txt > 9lar.txt --> 9 ile başlayan dosyaların içeriğini alt alta birleştirip
+9lar.txt dosyasına yazdı
+ls -l | grep fizik --> listelenen dosyalarda fizik içerenleri aradık
+ls -l | grep mat > matList.txt
+
+alias kisaad=‘komut --parametre arg’
+unalias guncelle
+aliasların kalıcı olması için --> cat ~/.bashrc
+
+
+GID group id
+grup üyelikleri /etc/group altında tanımlanır
+cat /etc/passwd --> sistemde kayıtlı olan tüm kullanıcılar
+sütun 1 --> kullanıcı adı
+sütun 2 --> parola sütunu, parolalar artık /etc/shadow içerisinde tutuluyor
+sütun 3 --> kullanıcı id
+sütun 4 --> group id
+sütun 5 --> kullanıcının tam adı
+sütun 6 --> home dizini (kendi kullanıcı adı ile birlikte), değiştirilebilir default böyle, root için yine root
+sütun 7 --> kabuk erişimi
+
+root'un parolası değiştirilemez
+
+yeni kullanıcı ekleme:
+*sudo useradd yeniKullanici
+
+*sudo passwd yenikullanici
+*sudo adduser kullanici2
+
+kullanıcı silme:
+*sudo deluser kullaniciadi
+*sudo userdel kullaniciadi
+
+grup ekleme:
+cat /etc/group
+sütun 1: grup isimleri
+sütun 2: grup parolası
+sütun 3: grup id
+sütun 4: grubun üyeleri
+*sudo addgroup grupAdi
+
+grup silme:
+*sudo delgroup grupAdi
+
+gruba kullanıcı ekleme:
+*sudo usermod -a -G grupAdi kullaniciAdi
+
+izinler-yetkiler
+
+tür/kullanıcı/grup/diğerherkes
+ls -al --> ll
+
+sahip değiştirme
+chown --> change owner
+*sudo chown kullaniciAdi dosyaAdi
+sudo chown -R kullaniciAdi dizinAdi
+
+grup değiştirme:
+*sudo chgrp grupAdi dosyaAdi
+*sudo chgrp -R grupAdi dizinAdi
+
+sudo chown -R grupAdi:kullaniciAdi *
+
+Read-Write-eXecute
+2^2-2^1-2^0  4-2-1
+-rw-rw-r-- --> 664
+
+izin değiştirme:
+chmod +w dersprogrami.txt
+chmod -x uygulama.sh
+chmod -w *.tar
+chmod 640 *.tar
+chmod 555 *.sh
+chmod -R 770 fizik/
+
 
