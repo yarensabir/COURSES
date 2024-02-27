@@ -157,3 +157,48 @@ chmod 555 *.sh
 chmod -R 770 fizik/
 
 
+linux 301
+
+çalışan süreçleri listeleme:
+çalışan proceslerin anlık görüntüsünü verir
+*ps
+*ps -ef
+*ps -aukullaniciAdi
+*ps -auroot
+*ps -aux
+
+canlı veri
+*htop
+
+kill processID
+
+kill -l
+kill -9 --> programı lak diye kapatıyor
+kill -15 --> programın kapanması için vakit veriyor
+
+pkill firefox --> firefox geçen bütün işilemler sonlandırılır (sekmeler vs. de sonlanıyor)
+
+& --> ampersand
+
+terminalde arkaplanda uygulama çalıştırma:
+uygulamaAdi & --> uygulama terminale hala bağlı
+nohup uygulamaAdi & --> uygulama terminalden bağımsız
+
+ctrl z --> işlemi arkaplana al, işlemleri dur
+bg komutu ile durdurulan işlem çalışmaya devam eder
+disown -h %processID --> işlemi terminalden koparma
+
+systemctl --> sistem kontrol
+list-unit --type service --> sistem üzerindeli servis ünitelerini görüntülemeyi sağlar
+
+systemctl list-unit --type service
+systemctl list-unit --type service --state running --> şu anda sistem üzerinde aktif olarak çalışan servisler
+systemctl status servisAdı --> servis durumu sorgulama
+
+sudo systemctl stop servisAdi
+sudo systemctl start servisAdi
+
+servis dosyası okuma:
+systemctl status ile servis durumunu görüntüleyip loaded kısmından dosya uzantısını al
+cat ile oku
+
