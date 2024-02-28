@@ -185,6 +185,7 @@ uygulamaAdi & --> uygulama terminale hala bağlı
 nohup uygulamaAdi & --> uygulama terminalden bağımsız
 
 ctrl z --> işlemi arkaplana al, işlemleri dur
+ctrl c --> işlemi durdurma
 bg komutu ile durdurulan işlem çalışmaya devam eder
 disown -h %processID --> işlemi terminalden koparma
 
@@ -201,4 +202,22 @@ sudo systemctl start servisAdi
 servis dosyası okuma:
 systemctl status ile servis durumunu görüntüleyip loaded kısmından dosya uzantısını al
 cat ile oku
+
+
+ifconfig eski, yenisi ip
+lo: local address, 127.0.0.1, dışarıya çıkmaz, bilgisayarın kendisini temsil eder
+inet: internete çıktığımız ip adresi, ipv4
+inet6: ipv6
+hostname -I
+ping
+
+ağ izleme
+sudo tcpdump -v
+iftop programı ile de izleme yapılabilir (sudo ile çalıştırılıyor)
+wireshark ile de ağ trafiği izlenebilir
+
+webden dosya indirme --> wget
+
+domain hakkında bilgi edinilmesi
+nslookup blabla.com.tr
 
