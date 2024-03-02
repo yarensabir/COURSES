@@ -221,3 +221,34 @@ webden dosya indirme --> wget
 domain hakkında bilgi edinilmesi
 nslookup blabla.com.tr
 
+
+linux 401
+
+apt --> paket yönetim sistemi
+apt update --> önbellek güncellemesi
+
+apt search keyword
+remove - purge farkı
+purge uygulamadaki ayarları da sıfırlar
+
+dpkg --> debian paket yönetim sistemi
+wget ile ikili dosya indirilir
+dpkg -i blabla.deb
+dpkl -l 
+dpkg -r blabla(sistemde var olan paket ismi)
+
+sudo !! --> bir önceki komutun başına sudo getirir
+
+
+özgür yazılım lisansları:
+GPL
+GNU FDL
+CREATIVE COMMONS 
+BSD
+LGPL
+AGPL
+MOZILLA
+
+her özgür yazılım açık kaynak kodludur ama her açık kaynak kodlu yazılım özgür yazılım değildir
+
+gnu --> özgür yazılım, kullanıcıların özgürlüğüne ve topluluğa saygı duyan yazılım
