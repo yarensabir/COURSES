@@ -270,7 +270,158 @@ eğer değişkenlere özellik eklemek istiyorsak "-" işaretini, şayet var olan
 readonly sabit="sabit değer1" --> declare -r sabit1="sabit değer 1"
 ikisi aynı
 
+******************************************************
+             *PERFORMANCE MONITORING*
+******************************************************
+
+*top
+çalışan, aktif gerçek zamanlı tüm işlemleri sıralı bir listede görüntülemek ve düzenli olarak güncellemek için kullanılır. CPU kullanımı, bellek kullanımı, önbellek boyutu, arabellek boyutu, işlem PID(process id)'si, kullanıcı ve komutlar olmak üzere detaylı bir çıktı sağlar. Çalışan işlemlerin yüksek bellek ve işlemci kullanımını gösterdiği için, CPU'nun yüksek olduğu durumlarda işletim sistemini yoran komutu bulmanıza yardımcı olacaktır
+*vmstat: virtual memory statics
+Bu komutla; sanal belliğinizi, kernel thread'lerini, diskinizi, system süreçlerinizi, I/O bloklarını, kesintileri, CPU aktivitelerini ve daha fazlasını görebilirsiniz. Varsayılan olarak vmstat komutu Linux sistemlerinde mevcut değildir, bu nedenle sysstat paketini kurmanız gerekir.
+*lsof: list open files
+ tüm açık dosyaların ve işlemlerin bir listesini görüntülemek için kullanılır. Bu açık dosyalar şunları içerir; disk files, network sockets, pipes, devices, ve processes.
+Bu komutu kullanmanın ana nedenlerinden biri, bir diskin bağlantısının kesilememesi ve dosyaların kullanıldığı veya açıldığı hatasını göstermesidir. Bu komut ile hangi dosyaların kullanımda olduğunu kolayca belirleyebilirsiniz. 
+*tcpdump
+bir ağ üzerinden belirli bir arabirimde alınan veya aktarılan TCP/IP paketlerini yakalamak veya filtrelemek için kullanılan en yaygın komut satırı ağ paket çözümleyicisi veya paket algılayıcı programlarından biridir.
+ip a diyerek network'leri görebilirsiniz.
+*netstat: network statics
+gelen ve giden ağ paketleri istatistiklerinin yanı sıra, arayüz istatistiklerini izlemek için yararlı bir komuttur.Ağ performansını izlemek ve sorunları gidermek için sıklıkla kullanılır. Bu komut için bir çok kullanım mevcuttur.
+
+************************************************************************************************************
+************************************************************************************************************
+
+Sar – Monitor, collect and report Linux system activity
+Sistem Faaliyet Raporu ( SAR ), çeşitli sistem yüklerini raporlamak için kullanılan bir Unix Sistem izleme komutudur. CPU aktivitesi, bellek / çağrı, kesintiler, cihaz yükü, ağ ve takas alanı kullanımını gibi verileri içerir. 
+
+*htop
+
+*iotop
+gerçek zamanlı Disk I/O ve işlemleri izlemek için bir hesaplama fonksiyonuna sahiptir.
+
+*iostat
+sistem giriş ve çıkış depolama aygıtı istatistiklerini toplayacak ve gösterecek basit bir araçtır. Bu komut genellikle cihazlar, yerel diskler ve NFS gibi uzak diskler dahil olmak üzere depolama cihazı performans sorunlarını izlemek için kullanılır
+
+*IPTraf
+ Linux için açık kaynaklı bir konsol tabanlı gerçek zamanlı ağ (IP LAN) izleme aracıdır. TCP bayrak bilgileri, ICMP ayrıntıları, TCP/UDP trafik arızaları, TCP bağlantı paketi ve bayt sayıları dahil olmak üzere ağ üzerinden geçen IP trafiği izleme gibi çeşitli bilgileri toplar.
+
+*psacct/acct
+kullanıcıların sistemdeki etkinliğini izlemek için kullanılır. Bu komutlar, sistem yöneticilerinin her bir kullanıcının ne yaptığı, hangi komutları verdiği, ne kadar kaynak kullandıkları, sistemde ne kadar süre aktif oldukları gibi etkinliklerini izlemesi için çok kullanışlıdır.
+
+*mpstat
+ilk işlemci 0 olmak üzere, kullanılabilir her işlemci için etkinlikleri görüntüler. işlemci başına ortalama CPU kullanımını görüntülemek için mpstat -P ALL diyebilirsiniz.
+
+*pmap
+bir işlemin bellek haritasını rapor eder. Bellek darboğazlarının nedenlerini bulmak için pmap -d PID(process id) şeklinde komutu kullanabilirsiniz.
 
 
+******************************************************
+             *SYSTEM&HARDWARE MONITORING*
+******************************************************
 
+*uname
+şletim sistemi adı ve sistem donanımı hakkında temel bilgileri görüntüleyen bir komuttur. Genelde işlemci mimarisini, sistem ana bilgisayar adını(hostname) ve sistemde çalışan kernel sürümünü belirlemek için kullanılır
+
+*lscpu
+CPU sayısı, çekirdekler, CPU ailesi modeli, CPU önbellekleri, iş parçacıkları vb. gibi CPU mimariniz hakkında bilgi
+
+*lsblk
+aygıtlarla ilgili bilgileri raporlamak için kullanılır (Block device; hard disk, flash sürücü vb. depolama aygıtlarıdır.)
+
+*free -m
+bellek miktarlarını görüntüler
+
+*df
+Mount Edilmiş Disklerimi ve Kullanımları
+bir dosya sistemindeki toplam alana ve kullanılabilir alana ilişkin bilgileri görüntüler. Ek parametrelerle istediğiniz çıktıyı görüntüleyebilirsiniz
+
+*ifconfig -a
+*ip link show
+*netstat -i
+
+/proc dizini bir sözde dosya sistemidir, içerisinde donanım bilgilerini barındırır ve bu dizin, yalnızca sistem çalışırken bellekte bulunur, diskte kalıcı değildir.
+cat /proc/cpuinfo  //diyerek lscpu komutuna benzer bir çıktı görebilirsiniz.
+cat /proc/meminfo  //diyerek free komutuna benzer bir çıktı görebilirsiniz.
+
+Intel, cihazları anakarta bağlamak için PCI standardını 1992'de geliştirdi. Çevresel Bileşen Ara Bağlantısı anlamına gelir. Burada PCI Aygıtları terimini, bir PCI veri yolu aracılığıyla ana karta doğrudan bağlı olan ses kartları ve ağ kartları gibi aygıtları belirtmek için kullanabiliriz.
+*lscpi
+*lscpi -v
+
+Evrensel Seri Veri Yolu veya USB, harici aygıtları bir bilgisayara bağlamak için harici bağlantı noktaları şeklinde çok daha kolay erişim sağlayan başka bir standarttır.
+*lsusb
+
+******************************************************
+             *ZAMANLANMIŞ GÖREVLER*
+******************************************************
+
+Cron Job (Zamanlanmış Görev) ileri tarihli tek seferlik ya da tekrarlanır veya duruma göre değişkenlik gösterebilir zaman uyarlı komutlar uygulamak için yaygın bir şekilde kullanılan yöntemlerden biridir.Rutin işlerin zamanı geldiğinde otomatik olarak başlayabilmesi için zamanlanmış görevler tanımlanabilir. Örnek olarak bir bir sistemi her gün yedeklemek gerekiyorsa bu iş zamanlanmış görevler sayesinde otomatize edilebilir.
+
+Bir cron dosyası belirli bir zamanda çalışacak komutları içeren basit bir metin dosyasıdır. Varsayılan crontab dosyasıysa /etc/crontab‘dır ve bir crontab dizininde /etc/cron.*/ konumlandırılmıştır. Sadece sistem yöneticileri crontab dosyasını düzenleyebilir.
+
+*apt install cron
+*service cron status: servisin çalışma durumu kontrol edilir
+*service cron start: servis çalışır duruma getirilir
+*cat /etc/crontab
+*crontab -e: crontab dosyasını editleme
+*crontab -u root -e: başka bir kullanıcının crontab dosyasını düzenleme
+crontab -u username -l: başkasının crontab dosyasını görüntüleme
+*crontab -r: mevcut crontab dosyasını kaldırma
+*crontab -l: crontab dosyasının oluşturulup oluşturulmadığının kontrolü
+
+
+***** /bin/sh backup.sh
+
+Bir crontab dosyası tekrarlanacak bir görevin tarihini ve saatini belirlemek için beş alana sahiptir. Her alan bir yıldız işareti tarafından temsil edilir.
+
+Minute (Dakika) — komutun çalışacağı saatin dakikası 0-59 arası
+Hour (Saat) — komutun hangi saatte çalışacağı 0-23 arası
+Day of the month (Ay günü) — ayın hangi gününde komutun çalışacağı, 1-31 arası
+Month (Ay) — komutun hangi ayda çalışacağı, 1-12 arası
+Day of the week (Haftanın günü) — komutun haftanın hangi gününde çalışacağı, 0-7 arası Buna ek olarak her crontab dosyasında doğru karakterleri kullanmanız gerekir.
+Yıldız işareti (*) — bütün planlama parametlerini tanımlamak için.
+Virgül (,) — tek bir komutun iki ya da daha fazla kere çalıştırılmasını sürdürmek için.
+Tire (-) — tek bir komutun çalıştırılma sayısını ayarlarken zaman aralığını belirlemek için.
+Bölme işareti (/) — belirli bir aralıkta önceden belirlenmiş sıklığı oluşturmak için.
+Last (Son) (L) — belirli bir aydaki haftanın son gününü belirlemek içindir. Örneğin, 3L son çarşamba anlamına gelir.
+Weekday (Hafta içi) (W) — belirlenen bir zamana en yakın hafta içi gününü belirlemek için. Örneğin, eğer 1W birincinin Cumartesi olduğu anlamına geliyorsa komut Pazartesi gününde çalışacaktır (3.)
+Hash (#) — 1-5 arasından bir rakamdan sonra gelir ve haftanın gününü belirler. Örneğin 1#2 ikinci Pazartesi anlamına gelir.
+Soru işareti (?) — boşluk bırakmak için.
+
+
+******************************************************
+                        *cURL*
+******************************************************
+!!!KONU TAMAMLANMADI!!!
+
+client url
+
+HTTP isteklerini cURL ile gerçekleştirebiliriz.
+
+-libcurl bir çok platformda çalışan; bir çok protokolü(FTP, FTPS, HTTP, HTTPS, SCP, SFTP, TFTP, Telnet, LDAP IMAP, POP3, SMTP, vb...) ve yazılımı (C/C++, R, Java, Python, Go, PHP) desteklemektedir.
+
+-cURL, libcurl kütüphanesini kullanarak veri göndermek veya veri almak için kullanılır. HTTPS gibi güvenli protokol kullanarak bir sunucuya istek yapıldığında ilk olarak SSL sertifika doğrulaması yapar. Eğer istek yapılan sunucu self-signed bir sertifikaya sahipse veya geçersiz bir sertifikası varsa cURL hata mesajı dönecek ve bize istediğimiz veriyi getiremeyecektir. Bu durumu atlatmak yani sertifika doğrulamasının atlanması için -k veya -insecure parametreleri kullanılabilir.
+
+*curl --version
+curl [OPTIONS] [URL]
+*curl google.com
+
+*curl -o burayayaz.html google.com
+burayayaz.html adlı dosyanın içerisine google.com adresine cURL ile yapılan GET isteğinin cevabı yazılmış oldu. 
+
+*curl -O https://medium.com/@damlayazici -O https://medium.com/t%C3%BCrk-telekom-bulut-teknolojileri?source=user_profile---------0----------------------------
+istek yapılan adresin uzantısında bir dosya oluşturarak, çıktıyı oraya yazar.
+
+parametreler:
+-L: yönlendirme ile sayfaya ulaştırır
+curl -L google.com
+-C: kesilen indirme işleminin devam ettirilmesinde kullanılır
+curl -C - -o tamamlandi.txt http://www.gnu.org/software/gettext/manual/gettext.html
+-z: belirli bir tarihten sonraki verileri adresten almak için kullanılır
+curl -z 30-July-22 https://jsonplaceholder.typicode.com/albums
+-k veya -insecure: sertifika doğrulamasını atlatır
+-I: http header'a ulaştırır fakat sayfa durum kodunu da verir
+-i: yapılan isteğe karşı dönen cevap bilgisi verilir, http header bilgisi döndürülür
+-v: HTTP isteği yapılan adres ve hangi porttan isteğin gerçekleştirildiği, kaynak adresin HTTP header bilgileri, cevap dönen kaynak adrese ait HTTP header bilgileri ve isteğe karşılık dönen cevap bilgileri
+
+*curl -X GET "https://fakerestapi.azurewebsites.net/api/v1/Users"
+ bu URL adresinin sunduğu veriler alınır
 
