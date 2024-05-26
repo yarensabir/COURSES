@@ -1,0 +1,42 @@
+hedef kitle popülasyon, popülasyon içerisinden seçilen alt küme örneklem
+satırlar gözlem birimi, sütunlar değişkenler
+
+değişken: birimden birime farklı değer alan nicelik
+sayısal değişken: nicel, kantitatif
+kategorik değişken: nitel, kalitatif
+kategorik değişken: sınıflı değişkenler, kategorileri var. evet-hayır, kadın-erkek, otomatik-manuel
+
+ölçek türleri:
+*sayısal değişkenler için: aralık, oran(başlangıç noktası 0)
+*kategorik değişkenler için: nominal(sınıflar arası fark yok, kadın-erkek gibi) , ordinal(sınıflar arası fark var, iyi-daha iyi)
+
+
+merkezi eğilim ölçüleri
+*aritmetik ortalama: tüm değerlerin toplanıp birim sayısına bölünmesi ile elde edilir
+*medyan: küçükten büyüğe sıralanan seriyi tam ortadan eşit bölen parça. 5 değer varsa 3.değer medyan, 4 değer varsa 2 ve 3.değerlerin ortalaması medyan
+*mod: en çok tekrar eden değer
+*kartiller: küçükten büyüğe sıralanan bir seriyi 4 parçaya ayıran değerler
+8, 10, 12, 14, 15, 17, 20 --> Q1 = 10, Q2 = 14, Q3 = 17, Q2 == medyan
+
+ortalama ve medyan birbirine yakınsa dağılımın düzgün, homojen olduğu anlamına gelir
+
+dağılım ölçüleri
+*değişim aralığı: max değer - min değer. en ilkel dağılım ölçütü 
+*standart sapma: ortalamadan olan sapmanın genel ölçüsü. 
+a = her bir gözlem biriminden ortalamayı çıkar
+a^2
+bütün birimler için bu işlemi yaptıktan sonra bunları topla, bu toplam da b olsun
+s = (1/n)*b işlemini yap ve kökünü al (eklediğimiz kareden kurtarmak için)
+*varyans: standart sapmanın karesi, yani standart sapmadaki en sonda yapılan işlemin yapılmaması durumu, s^2
+*çarpıklık: değişken dağılımının simetrik olamayışı. medyan ve ortalama arasındaki fark çarpıklığı gösterir
+pearson çarpıklık katsayısı: 3(ortalama-medyan)/standart sapma
++1 ve -1 arasındas değer alır, + ise sağdan çarpık yani sağdan, - ise soldan çarpık yani negatif
+*basıklık: basıksa değerler yayvan, sivri ise bir alanda daha çok toplanmış
+
+istatistiksel düşünce modelleri
+*mooney modeli:
+-verinin tanımlanması
+-verinin organize edilmesi ve indirgenmesi
+-veri gösterimi
+-verinin analiz edilmesi ve yorumlanması
+seviyeleri:
