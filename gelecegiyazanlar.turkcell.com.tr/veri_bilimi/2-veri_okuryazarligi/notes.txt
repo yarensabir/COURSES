@@ -39,4 +39,10 @@ istatistiksel düşünce modelleri
 -verinin organize edilmesi ve indirgenmesi
 -veri gösterimi
 -verinin analiz edilmesi ve yorumlanması
-seviyeleri:
+
+istatistiksel düşünce seviyeleri:
+*seviye 1 - kişiye özgülük
+*seviye 2 - geçici (nicel düşünmenin öneminin fark edildiği kısım)
+*seviye 3 - nicel (merkezi eğilim-yayılım ölçüleri gibi ölçülerin anlaşılmaya başlandığı basamak)
+*seviye 4 -analitik
+
